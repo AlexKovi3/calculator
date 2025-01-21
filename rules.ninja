@@ -1,0 +1,20 @@
+# Common compiler flags
+cflags = -Wall -Wextra
+cxxflags = $cflags -std=c++11
+
+# Rules for C++ compilation
+rule cxx
+  command = $cxx -MD -MF $out.d $cxxflags -c $in -o $out
+  description = CXX $out
+  depfile = $out.d
+  deps = gcc
+
+# Rules for static library creation
+rule ar
+  command = rm -f $out && $ar crs $out $in
+  description = AR $out
+
+# Rules for linking
+rule link
+  command = $cxx $ldflags -o $out $in $libs
+  description = LINK $out

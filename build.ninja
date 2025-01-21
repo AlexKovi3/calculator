@@ -1,0 +1,15 @@
+ninja_required_version = 1.5
+
+# Set up basic variables
+cxx = g++
+ar = ar
+
+# Include common rules
+subninja rules.ninja
+
+# Build targets
+build calculator.o: cxx calculator.cpp
+build libcalc.a: ar calculator.o
+build calculator: link main.cpp libcalc.a
+
+default calculator
