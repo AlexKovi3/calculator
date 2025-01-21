@@ -24,8 +24,6 @@ compile_commands.json
 # Ninja build files
 .ninja_deps
 .ninja_log
-build.ninja
-rules.ninja
 
 # IDE specific files
 .vscode/
